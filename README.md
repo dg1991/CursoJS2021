@@ -85,7 +85,6 @@ let isname = "Juan"
 
 ## Constantes
 - Como ahora ya sabes, _var y let_ permiten declarar variables dinámicas: puedes re-asociarlas a otro valor.
-
 - Si queremos crear una asociación constante a un valor, podemos usar _const_ para la creación de variables.
 
 ```
@@ -93,7 +92,6 @@ const edad = 30;
 ```
 
 - Al utilizar _const_ nos aseguramos que no ocurrirá ninguna re-asociación a otro valor eb esa variable.
-
 - Eso sí, usar _constantes_ no significa que sean inmutables. Podemos mutar propiedades del valor asociado a la constante.
 
 ```
@@ -118,6 +116,38 @@ console.log(name);
 console.log(persona.nombre);
 const persona = { nombre: "Juan" }
 persona.nombre = "Andres"
+```
+
+## Parámetros y argumentos 
+
+- Todas las funciones pueden tener parámetros para hacerlas aún más polivalentes.
+- Los parámetros son accesibles como variables en el cuerpo de la función.
+- Al invocar la función, pasamos valores como argumento que son aceptados como parámetros.
+
+```
+function saludar (nombre) {
+    console.log("Hola me llamo " + nombre);
+}
+
+saludar('Juan');
+```
+
+- Podemos establecer valores por defecto para los parámetros, en el caso de que no se satisfagan en la invocación.
+
+```
+function saludar (nombre = "Juan", apellido = "Núñez") {
+    console.log("Soy " + nombre + " " + apellido);
+}
+
+saludar();
+```
+
+```
+function saludar (nombre = "Juan", apellido = "Núñez") {
+    console.log("Soy " + nombre + " " + apellido);
+}
+
+saludar(undefined, "Charro");
 ```
 
 ## NO VISTO -> Callbacks 
