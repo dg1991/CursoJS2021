@@ -47,9 +47,78 @@ function saludar() {
 ## Ámbito y let
 
 - Hasta ahora hemos creado variables con var. Estas tienen **ámbito de función:** pueden ser accedidas desde la función donde fueron declaradas (y funciones interiores).
+
+```
+var nombre = "Juan";
+function Saludar() {
+    var nombre = "Andres";
+    console.log("Hola " + nombre);
+}
+Saludar();
+```
+
 - Sin embargo, si declaramos variables con let(ES2105), tenemos **ámbito de bloque**, es decir, solo pueden ser accedidas desde el bloque en el que se declararon, o bloques interiores. 
 
-**IMPORTANTE: Seguir acá: https://www.youtube.com/watch?v=iIkeGM1I-cM&list=PLM-Y_YQmMEqB4FVmgxZqG-f7R3ESkcIPA&index=3**
+```
+{
+let name = "Juan";
+}
+
+console.log(name);
+```
+
+- Este ámbito de bloque tiene sus ventajas. Por ej. al utilizarlo con estructuras de control y de flujo.
+
+```
+for (let i = 0; i <= 100; i++) {
+    console.log(i);
+}
+console.log(i);
+```
+
+- Además, al usar _let_ tenemos un comportamiento mucho más estricto en el _alzado_ (hoisting), algo que para muchos es otra ventaja.
+
+```
+console.log(isname)
+let isname = "Juan"
+```
+
+## Constantes
+- Como ahora ya sabes, _var y let_ permiten declarar variables dinámicas: puedes re-asociarlas a otro valor.
+
+- Si queremos crear una asociación constante a un valor, podemos usar _const_ para la creación de variables.
+
+```
+const edad = 30;
+```
+
+- Al utilizar _const_ nos aseguramos que no ocurrirá ninguna re-asociación a otro valor eb esa variable.
+
+- Eso sí, usar _constantes_ no significa que sean inmutables. Podemos mutar propiedades del valor asociado a la constante.
+
+```
+const persona = { nombre: "Juan" }
+persona.nombre = "Andres"
+console.log(persona.nombre);
+```
+
+- En cuanto a su acceso, igual que con _let_ disponemos de ámbito de bloque
+
+```
+{
+const name = "Juan";
+}
+
+console.log(name);
+```
+
+- Por último, las variables creadas con _const_ no son alzadas.
+
+```
+console.log(persona.nombre);
+const persona = { nombre: "Juan" }
+persona.nombre = "Andres"
+```
 
 ## NO VISTO -> Callbacks 
 
